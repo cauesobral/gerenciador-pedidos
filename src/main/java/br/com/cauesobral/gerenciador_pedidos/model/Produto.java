@@ -1,20 +1,16 @@
 package br.com.cauesobral.gerenciador_pedidos.model;
 
-//1 - Crie uma classe chamada Produto com os seguintes atributos: id (Long, chave primária) nome (String)
-//preco (Double) Anote a classe com @Entity e mapeie o atributo id como chave primária com @Id.
-//A classe deve ter um construtor e os getters.
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Produto {
     @Id //Importar o do Jakarta persistence
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Não usar ponto e virgula depois de tags
     private Long id;
+    @Column(unique = true, nullable = false) //nullable para definir se será nulo ou nao, unique para definir se sera
+    //unico
     private String nome;
+    @Column(name = "valor") //name para definir o nome da coluna
     private Double preco;
 
     //Quem usa o JPA precisa usar dois construtores, um vazio para o JPA preencher e outro para o desenvolvedor
