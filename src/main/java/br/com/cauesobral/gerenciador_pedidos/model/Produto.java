@@ -13,6 +13,11 @@ public class Produto {
     @Column(name = "valor") //name para definir o nome da coluna
     private Double preco;
 
+    @ManyToOne //Many to One não precisa preencher os campos mappedBy nem CascadeType
+    @JoinColumn(name = "categoria_id")
+    private Categoria caregoria; //categoria que o produto faz parte
+
+
     //Quem usa o JPA precisa usar dois construtores, um vazio para o JPA preencher e outro para o desenvolvedor
     //O JPA/Hibernate precisa sempre de um construtor vazio
     public Produto() {
