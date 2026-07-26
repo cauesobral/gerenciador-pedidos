@@ -17,6 +17,9 @@ public class Produto {
     @JoinColumn(name = "categoria_id")
     private Categoria caregoria; //categoria que o produto faz parte
 
+    @ManyToOne
+    @JoinColumn (name = "fornecedor_id")
+    private Fornecedor fornecedor;
 
     //Quem usa o JPA precisa usar dois construtores, um vazio para o JPA preencher e outro para o desenvolvedor
     //O JPA/Hibernate precisa sempre de um construtor vazio
